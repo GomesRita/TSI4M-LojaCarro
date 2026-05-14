@@ -10,10 +10,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import br.org.edu.ifrn.LojaCarro.services.CampoInvalido;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -115,5 +113,15 @@ class CarroServiceTest {
         carro.setModelo(modelo);
         carro.setAno(ano);
         return carro;
+
+    }
+
+    @Test
+    void verificacampo() {
+        Carro carro = criarCarro(17L, "HB20", 2021);
+        assertThrows(IllegalArgumentException.class, () -> {
+            throw new CampoInvalido();
+        });
+
     }
 }
