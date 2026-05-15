@@ -110,17 +110,17 @@ class CarroServiceTest {
 
     @Test
     void deveLancarExcecaoQuandoModeloForNulo() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 2021));
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, null, 2010));
     }
 
     @Test
     void deveLancarExcecaoQuandoModeloForVazio() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 2021));
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "", 2012));
     }
 
     @Test
     void deveLancarExcecaoQuandoAnoForInvalido() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1800));
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1799));
     }
 
 
