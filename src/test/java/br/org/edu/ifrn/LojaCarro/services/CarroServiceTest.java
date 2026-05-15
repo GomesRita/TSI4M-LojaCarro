@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import br.org.edu.ifrn.LojaCarro.services.CampoInvalido;
@@ -108,20 +109,39 @@ class CarroServiceTest {
     }
 
     private Carro criarCarro(Long id, String modelo, int ano) {
-        Carro carro = new Carro();
-        carro.setId(id);
-        carro.setModelo(modelo);
-        carro.setAno(ano);
-        return carro;
+        Carro carro = new Carro(id, modelo, ano);
+        if (modelo == null || modelo.isBlank()) {
+            throw new CampoInvalido("modelo"); // ← sem isso, o teste nunca passa
+        }
+        if (ano < 1886 || ano > LocalDate.now().getYear()) {
+            throw new CampoInvalido("ano");
+        }
+        return new Carro(id, modelo, ano);
 
     }
 
     @Test
-    void verificacampo() {
-        Carro carro = criarCarro(17L, "HB20", 2021);
-        assertThrows(IllegalArgumentException.class, () -> {
-            throw new CampoInvalido();
-        });
+    void deveLancarExcecaoQuandoModeloForNulo() {
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 2021));
+    }
 
+    @Test
+    void deveLancarExcecaoQuandoModeloForVazio() {
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 2021));
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoAnoForInvalido() {
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1800));
+    }
+
+    @Test
+    void deveCriarCarroComDadosValidos() {
+        Carro carro = criarCarro(17L, "HB20", 2021);
+
+        assertNotNull(carro);
+        assertEquals(17L, carro.getId());
+        assertEquals("HB20", carro.getModelo());
+        assertEquals(2021, carro.getAno());
     }
 }

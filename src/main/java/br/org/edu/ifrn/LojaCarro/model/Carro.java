@@ -11,6 +11,9 @@ public class Carro {
     String modelo;
     int ano;
 
+    public Carro(Long id, String modelo, int ano) {
+    }
+
     public Long getId() {
         return id;
     }
