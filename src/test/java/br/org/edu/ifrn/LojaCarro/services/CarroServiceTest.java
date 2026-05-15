@@ -125,9 +125,8 @@ class CarroServiceTest {
 
 
     private Carro criarCarro(Long id, String modelo, int ano) {
-        Carro carro = new Carro(id, modelo, ano);
         if (modelo == null || modelo.isBlank()) {
-            throw new CampoInvalido("modelo"); // ← sem isso, o teste nunca passa
+            throw new CampoInvalido("modelo");
         }
         if (ano < 1886 || ano > LocalDate.now().getYear()) {
             throw new CampoInvalido("ano");
