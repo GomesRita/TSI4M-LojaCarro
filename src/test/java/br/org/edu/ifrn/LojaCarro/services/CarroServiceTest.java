@@ -138,7 +138,6 @@ class CarroServiceTest {
     @Test
     void deveCriarCarroComDadosValidos() {
         Carro carro = criarCarro(17L, "HB20", 2021);
-
         assertNotNull(carro);
         assertEquals(17L, carro.getId());
         assertEquals("HB20", carro.getModelo());
