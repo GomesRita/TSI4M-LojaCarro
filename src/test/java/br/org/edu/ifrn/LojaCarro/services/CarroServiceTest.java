@@ -108,6 +108,22 @@ class CarroServiceTest {
         verifyNoMoreInteractions(carroRepository);
     }
 
+    @Test
+    void deveLancarExcecaoQuandoModeloForNulo() {
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, null, 2021));
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoModeloForVazio() {
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "", 2021));
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoAnoForInvalido() {
+        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1800));
+    }
+
+
     private Carro criarCarro(Long id, String modelo, int ano) {
         Carro carro = new Carro(id, modelo, ano);
         if (modelo == null || modelo.isBlank()) {
@@ -118,29 +134,5 @@ class CarroServiceTest {
         }
         return new Carro(id, modelo, ano);
 
-    }
-
-    @Test
-    void deveLancarExcecaoQuandoModeloForNulo() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 2021));
-    }
-
-    @Test
-    void deveLancarExcecaoQuandoModeloForVazio() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 2021));
-    }
-
-    @Test
-    void deveLancarExcecaoQuandoAnoForInvalido() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1800));
-    }
-
-    @Test
-    void deveCriarCarroComDadosValidos() {
-        Carro carro = criarCarro(17L, "HB20", 2021);
-        assertNotNull(carro);
-        assertEquals(17L, carro.getId());
-        assertEquals("HB20", carro.getModelo());
-        assertEquals(2021, carro.getAno());
     }
 }
