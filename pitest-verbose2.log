@@ -1,0 +1,103 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36mbr.org.edu.ifrn:LojaCarro[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding LojaCarro 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest-maven:1.19.1:mutationCoverage[m [1m(default-cli)[m @ [36mLojaCarro[0;1m ---[m
+[[1;34mINFO[m] Root dir is : /home/gomesrita/Downloads/TSI4M-LojaCarro
+[[1;34mINFO[m] Found plugin : Default csv report plugin
+[[1;34mINFO[m] Found plugin : Default xml report plugin
+[[1;34mINFO[m] Found plugin : Default html report plugin
+[[1;34mINFO[m] Found plugin : Static initializer code detector plugin
+[[1;34mINFO[m] Found plugin : Excluded annotations plugin
+[[1;34mINFO[m] Found plugin : Try with resources filter
+[[1;34mINFO[m] Found plugin : Inlined finally block filter plugin
+[[1;34mINFO[m] Found plugin : Implicit null check filter
+[[1;34mINFO[m] Found plugin : Method reference null check filter
+[[1;34mINFO[m] Found plugin : For each loop filter
+[[1;34mINFO[m] Found plugin : Enum junk filter
+[[1;34mINFO[m] Found plugin : Record junk mutation filter
+[[1;34mINFO[m] Found plugin : String switch filter
+[[1;34mINFO[m] Found plugin : Assertions filter
+[[1;34mINFO[m] Found plugin : Enum switch filter
+[[1;34mINFO[m] Found plugin : Logging calls filter
+[[1;34mINFO[m] Found plugin : Infinite for loop filter
+[[1;34mINFO[m] Found plugin : Long running iterator loop filter
+[[1;34mINFO[m] Found plugin : For loop counter filter
+[[1;34mINFO[m] Found plugin : Kotlin junk mutations filter
+[[1;34mINFO[m] Found plugin : Groovy junk mutations filter
+[[1;34mINFO[m] Found plugin : Max mutations per class limit
+[[1;34mINFO[m] Found plugin : Equals shortcut equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Trivial return vals equivalence filter
+[[1;34mINFO[m] Found plugin : Filters mutants with line number <= 1
+[[1;34mINFO[m] Found plugin : Division by one equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Lombok junk mutations filter
+[[1;34mINFO[m] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[[1;34mINFO[m] Found plugin : Mutant export plugin
+[[1;34mINFO[m] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[[1;34mINFO[m] Found plugin : Auto set number of threads based on machine
+[[1;34mINFO[m] Found plugin : Automatically add -ea to launch args to enable assertions
+[[1;34mINFO[m] Found plugin : Default build verifier
+[[1;34mINFO[m] Found plugin : Detect missing JUnit5 plugin
+[[1;34mINFO[m] Found plugin : Detect missing TestNG plugin
+[[1;34mINFO[m] Found plugin : Detect missing kotlin plugin
+[[1;34mINFO[m] Found plugin : Detect missing spring plugin
+[[1;34mINFO[m] Found plugin : Default coverage exporter
+[[1;34mINFO[m] Found shared classpath plugin : Default mutation engine
+[[1;34mINFO[m] Found shared classpath plugin : JUnit 5 test framework support
+[[1;34mINFO[m] Found shared classpath plugin : JUnit plugin
+[[1;34mINFO[m] Found shared classpath plugin : Support for mocking frameworks using javassist
+[[1;34mINFO[m] Found shared classpath plugin : Reset environment for javassist
+[[1;34mINFO[m] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[[1;34mINFO[m] Adding org.pitest:pitest-junit5-plugin to SUT classpath
+[[1;34mINFO[m] Adding org.pitest:pitest to SUT classpath
+[[1;34mINFO[m] Auto adding org.junit.platform:junit-platform-launcher:jar:1.12.2 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
+[[1;34mINFO[m] Mutating from /home/gomesrita/Downloads/TSI4M-LojaCarro/target/classes
+10:56:48 PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+10:56:49 PIT >> INFO : Created 3 mutation test units in pre scan
+10:56:49 PIT >> INFO : Sending 7 test classes to minion
+10:56:49 PIT >> INFO : Sent tests to minion
+10:56:49 PIT >> SEVERE : Coverage generator Minion exited abnormally due to UNKNOWN_ERROR
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.921 s
+[[1;34mINFO[m] Finished at: 2026-06-10T10:56:49-03:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.pitest:pitest-maven:1.19.1:mutationCoverage[m [1m(default-cli)[m on project [36mLojaCarro[m: [1;31mExecution default-cli of goal org.pitest:pitest-maven:1.19.1:mutationCoverage failed: Coverage generation minion exited abnormally! (UNKNOWN_ERROR)[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31mPlease copy and paste the information and the complete stacktrace below when reporting an issue[m
+[[1;31mERROR[m] [1;31mVM : OpenJDK 64-Bit Server VM[m
+[[1;31mERROR[m] [1;31mVendor : Ubuntu[m
+[[1;31mERROR[m] [1;31mVersion : 21.0.11+10-1-24.04.2-Ubuntu[m
+[[1;31mERROR[m] [1;31mUptime : 4541[m
+[[1;31mERROR[m] [1;31mInput -> [m
+[[1;31mERROR[m] [1;31m 1 : -Djansi.mode=force[m
+[[1;31mERROR[m] [1;31m 2 : -Dclassworlds.conf=/usr/share/maven/bin/m2.conf[m
+[[1;31mERROR[m] [1;31m 3 : -Dmaven.home=/usr/share/maven[m
+[[1;31mERROR[m] [1;31m 4 : -Dlibrary.jansi.path=/usr/share/maven/lib/jansi-native[m
+[[1;31mERROR[m] [1;31m 5 : -Dmaven.multiModuleProjectDirectory=/home/gomesrita/Downloads/TSI4M-LojaCarro[m
+[[1;31mERROR[m] [1;31mBootClassPathSupported : false[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31mPlease copy and paste the information and the complete stacktrace below when reporting an issue[m
+[[1;31mERROR[m] [1;31mVM : OpenJDK 64-Bit Server VM[m
+[[1;31mERROR[m] [1;31mVendor : Ubuntu[m
+[[1;31mERROR[m] [1;31mVersion : 21.0.11+10-1-24.04.2-Ubuntu[m
+[[1;31mERROR[m] [1;31mUptime : 4557[m
+[[1;31mERROR[m] [1;31mInput -> [m
+[[1;31mERROR[m] [1;31m 1 : -Djansi.mode=force[m
+[[1;31mERROR[m] [1;31m 2 : -Dclassworlds.conf=/usr/share/maven/bin/m2.conf[m
+[[1;31mERROR[m] [1;31m 3 : -Dmaven.home=/usr/share/maven[m
+[[1;31mERROR[m] [1;31m 4 : -Dlibrary.jansi.path=/usr/share/maven/lib/jansi-native[m
+[[1;31mERROR[m] [1;31m 5 : -Dmaven.multiModuleProjectDirectory=/home/gomesrita/Downloads/TSI4M-LojaCarro[m
+[[1;31mERROR[m] [1;31mBootClassPathSupported : false[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException

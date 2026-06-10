@@ -2,21 +2,19 @@ package br.org.edu.ifrn.LojaCarro.services;
 
 import br.org.edu.ifrn.LojaCarro.model.Carro;
 import br.org.edu.ifrn.LojaCarro.repository.CarroRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-import br.org.edu.ifrn.LojaCarro.services.CampoInvalido;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
+
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CarroServiceTest {
@@ -26,31 +24,32 @@ class CarroServiceTest {
 
     @InjectMocks
     private CarroService carroService;
+    private Class<? extends Throwable> ItemNotFoundException;
 
     @Test
     void saveDeveDelegarParaRepositoryERetornarCarroSalvo() {
         Carro carro = criarCarro(1L, "Gol", 2020);
 
-        when(carroRepository.save(carro)).thenReturn(carro);
+        Mockito.when(carroRepository.save(carro)).thenReturn(carro);
 
         Carro resultado = carroService.save(carro);
 
-        assertSame(carro, resultado);
-        verify(carroRepository).save(carro);
-        verifyNoMoreInteractions(carroRepository);
+        Assertions.assertSame(carro, resultado);
+        Mockito.verify(carroRepository).save(carro);
+        Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
     @Test
     void updateDeveDelegarParaRepositoryERetornarCarroAtualizado() {
         Carro carro = criarCarro(2L, "Onix", 2022);
 
-        when(carroRepository.save(carro)).thenReturn(carro);
+        Mockito.when(carroRepository.save(carro)).thenReturn(carro);
 
         Carro resultado = carroService.update(carro);
 
-        assertSame(carro, resultado);
-        verify(carroRepository).save(carro);
-        verifyNoMoreInteractions(carroRepository);
+        Assertions.assertSame(carro, resultado);
+        Mockito.verify(carroRepository).save(carro);
+        Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
     @Test
@@ -59,8 +58,8 @@ class CarroServiceTest {
 
         carroService.deleteById(id);
 
-        verify(carroRepository, times(1)).deleteById(id);
-        verifyNoMoreInteractions(carroRepository);
+        Mockito.verify(carroRepository, Mockito.times(1)).deleteById(id);
+        Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
     @Test
@@ -68,27 +67,27 @@ class CarroServiceTest {
         Long id = 3L;
         Carro carro = criarCarro(id, "HB20", 2021);
 
-        when(carroRepository.findById(id)).thenReturn(Optional.of(carro));
+        Mockito.when(carroRepository.findById(id)).thenReturn(Optional.of(carro));
 
         Optional<Carro> resultado = carroService.findById(id);
 
-        assertTrue(resultado.isPresent());
-        assertSame(carro, resultado.get());
-        verify(carroRepository).findById(id);
-        verifyNoMoreInteractions(carroRepository);
+        Assertions.assertTrue(resultado.isPresent());
+        Assertions.assertSame(carro, resultado.get());
+        Mockito.verify(carroRepository).findById(id);
+        Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
     @Test
     void findByIdDeveRetornarOptionalVazioQuandoNaoEncontrado() {
         Long id = 99L;
 
-        when(carroRepository.findById(id)).thenReturn(Optional.empty());
+        Mockito.when(carroRepository.findById(id)).thenReturn(Optional.empty());
 
         Optional<Carro> resultado = carroService.findById(id);
 
-        assertTrue(resultado.isEmpty());
-        verify(carroRepository).findById(id);
-        verifyNoMoreInteractions(carroRepository);
+        Assertions.assertTrue(resultado.isEmpty());
+        Mockito.verify(carroRepository).findById(id);
+        Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
     @Test
@@ -98,29 +97,32 @@ class CarroServiceTest {
                 criarCarro(2L, "Onix", 2022)
         );
 
-        when(carroRepository.findAll()).thenReturn(carros);
+        Mockito.when(carroRepository.findAll()).thenReturn(carros);
 
         List<Carro> resultado = carroService.findAll();
 
-        assertEquals(2, resultado.size());
-        assertSame(carros, resultado);
-        verify(carroRepository).findAll();
-        verifyNoMoreInteractions(carroRepository);
+        Assertions.assertEquals(2, resultado.size());
+        Assertions.assertSame(carros, resultado);
+        Mockito.verify(carroRepository).findAll();
+        Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
+
+    //Implementa Modelo Vazio
     @Test
     void deveLancarExcecaoQuandoModeloForNulo() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, null, 2010));
+        Assertions.assertThrows(CampoInvalido.class, () -> criarCarro(17L, null, 2010));
     }
+
 
     @Test
     void deveLancarExcecaoQuandoModeloForVazio() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "", 2012));
+        Assertions.assertThrows(CampoInvalido.class, () -> criarCarro(17L, "", 2012));
     }
 
     @Test
     void deveLancarExcecaoQuandoAnoForInvalido() {
-        assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1799));
+        Assertions.assertThrows(CampoInvalido.class, () -> criarCarro(17L, "HB20", 1799));
     }
 
 
@@ -135,3 +137,69 @@ class CarroServiceTest {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
