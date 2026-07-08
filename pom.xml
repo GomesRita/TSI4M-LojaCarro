@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 		<sonar.host.url>http://localhost:8085</sonar.host.url>
 		<sonar.token>925530a7ce036830375614ff03ff0354f5f29241</sonar.token>
 	</properties>
