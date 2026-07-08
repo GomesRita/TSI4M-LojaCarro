@@ -1,0 +1,38 @@
+name: Code Quality - SonarQube
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  sonar:
+    name: Build and Analyze
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: Configurar JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' 
+          distribution: 'zulu'
+          cache: maven
+
+      - name: Cache dos pacotes do Sonar
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Build e Análise do Sonar
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Se usar o SonarCloud, use https://sonarcloud.io
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=NOME_DO_SEU_PROJETO
