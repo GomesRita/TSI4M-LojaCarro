@@ -33,6 +33,6 @@ jobs:
 
       - name: Build e Análise do Sonar
         env:
-          SONAR_TOKEN: ${{ SONARTOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
         run: mvn -B verify sonar:sonar -Dsonar.projectKey= br.org.edu.ifrn:LojaCarro
