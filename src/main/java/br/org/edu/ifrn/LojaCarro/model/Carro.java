@@ -11,7 +11,13 @@ public class Carro {
     String modelo;
     int ano;
 
+    public Carro() {
+    }
+
     public Carro(Long id, String modelo, int ano) {
+        this.id = id;
+        this.modelo = modelo;
+        this.ano = ano;
     }
 
     public Long getId() {

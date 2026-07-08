@@ -107,6 +107,26 @@ class CarroServiceTest {
         Mockito.verifyNoMoreInteractions(carroRepository);
     }
 
+    @Test
+    void findAllDeveRetornarListaVaziaQuandoNaoHouverCarros() {
+        Mockito.when(carroRepository.findAll()).thenReturn(List.of());
+
+        List<Carro> resultado = carroService.findAll();
+
+        Assertions.assertNotNull(resultado);
+        Assertions.assertTrue(resultado.isEmpty());
+        Mockito.verify(carroRepository).findAll();
+        Mockito.verifyNoMoreInteractions(carroRepository);
+    }
+
+    @Test
+    void deveAtribuirCamposNoConstrutorDaEntidade() {
+        Carro carro = new Carro(7L, "Corolla", 2023);
+
+        Assertions.assertEquals(7L, carro.getId());
+        Assertions.assertEquals("Corolla", carro.getModelo());
+        Assertions.assertEquals(2023, carro.getAno());
+    }
 
     //Implementa Modelo Vazio
     @Test
